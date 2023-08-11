@@ -56,5 +56,42 @@ namespace LoginPage
             this.Close();
 
         }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            DatabaseManager db = new DatabaseManager();
+            if (txtProductCategoryName.Text == "")
+            {
+                MessageBox.Show("Please enter vendor name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.txtProductCategoryName.Focus();
+                return;
+            }
+            try
+            {
+
+
+
+
+                // Get the values from the text boxes on the form.
+                decimal customerID = db.GetNextPKValue("Product_Category_ID", "Product_Categories");
+                string customerName =txtProductCategoryName.Text.Trim();
+      
+                // Use string concatenation for the SQL query (not recommended due to security risks).
+                string sql = "INSERT INTO Product_Categories (Product_Category_ID, Product_Category_Name) "
+                           + "VALUES (" + customerID + ", '" + customerName + "')";
+
+
+                db.ExecuteNonQuery(sql);
+
+                MessageBox.Show("successfully inserted");
+
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -40,20 +40,20 @@ namespace LoginPage
         private void Btnsave_Click(object sender, EventArgs e)
         {
             DatabaseManager db = new DatabaseManager();
-            if (txtCustomerID.Text== "")
+            if (txtCustomerName.Text== "")
             {
                 MessageBox.Show("Please enter vendor name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.txtCustomerID.Focus();
+                this.txtCustomerName.Focus();
                 return;
             }
             try
             {
 
 
-            
+
 
                 // Get the values from the text boxes on the form.
-                string customerID = txtCustomerID.Text.Trim();
+                decimal customerID = db.GetNextPKValue("Customer_ID", "Customers");
                 string customerName = txtCustomerName.Text.Trim();
 
                 // Use string concatenation for the SQL query (not recommended due to security risks).
@@ -72,6 +72,11 @@ namespace LoginPage
             {
                 MessageBox.Show("Error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }
