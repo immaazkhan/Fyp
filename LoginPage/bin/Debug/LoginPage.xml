@@ -1,0 +1,443 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LoginPage</name>
+    </assembly>
+    <members>
+        <member name="T:LoginPage.DatabaseManager">
+            <summary>
+            this class provide functionality of intrating with database. 
+            </summary>
+        </member>
+        <member name="P:LoginPage.DatabaseManager.Connection">
+            <summary>
+            get the SQL connection Object used for perfpeming operation on SQL Server dataabase
+            </summary>
+        </member>
+        <member name="M:LoginPage.DatabaseManager.#ctor">
+            <summary>
+            the constrarotr for <b>DatabaseManager class. </b>
+            this constrtor useses app.conffig file for connection string.
+            </summary>
+        </member>
+        <member name="M:LoginPage.DatabaseManager.ExecuteScalar(System.String)">
+            <summary>
+            exexutes a SQl statement and retrn a single value from database 
+            </summary>
+            <param name="sql">the Sql sattement passt to thedatabase fpr executation </param>
+            <returns>the value retrived from databse.</returns>
+        </member>
+        <member name="M:LoginPage.DatabaseManager.ExecuteDataTable(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="F:LoginPage.DSMC_Dashboard.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.DSMC_Dashboard.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.DSMC_Dashboard.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmCustomerMgt.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmCustomerMgt.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmCustomerMgt.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmCustomers.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmCustomers.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmCustomers.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmDoctors.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmDoctors.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmDoctors.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmEmployeeMgt.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmEmployeeMgt.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmEmployeeMgt.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmEmployees.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmEmployees.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmEmployees.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmManufacturerMgt.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmManufacturerMgt.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmManufacturerMgt.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmManufacturers.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmManufacturers.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmManufacturers.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmpatientregistrationMgt.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmpatientregistrationMgt.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmpatientregistrationMgt.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmPatients.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmPatients.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmPatients.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmProductCategoryMgt.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmProductCategoryMgt.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmProductCategoryMgt.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmProducts.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmProducts.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmProducts.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmProductsMgt.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmProductsMgt.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmProductsMgt.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmProductCategories.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmProductCategories.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmProductCategories.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmSales.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmSales.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmSales.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmSalesMgt.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmSalesMgt.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmSalesMgt.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:LoginPage.frmVendors.EditVender">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmVendors.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmVendors.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmVendors.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmVendorsMgt.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmVendorsMgt.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmVendorsMgt.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.Login_page.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.Login_page.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.Login_page.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.MainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LoginPage.frmLogin.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.frmLogin.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.frmLogin.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:LoginPage.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="F:LoginPage.SingletonFrm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LoginPage.SingletonFrm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LoginPage.SingletonFrm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:LoginPage.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:LoginPage.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:LoginPage.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:LoginPage.Properties.Resources.Login_page_image">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>

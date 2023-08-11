@@ -1,0 +1,38 @@
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\bin\Debug\LoginPage.exe.config
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\bin\Debug\LoginPage.exe
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\bin\Debug\LoginPage.pdb
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\obj\Debug\DSMC Hospital Management System.csproj.AssemblyReference.cache
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\obj\Debug\DSMC Hospital Management System.csproj.SuggestedBindingRedirects.cache
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.Login_page.resources
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.Properties.Resources.resources
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\obj\Debug\DSMC Hospital Management System.csproj.GenerateResource.cache
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\obj\Debug\DSMC Hospital Management System.csproj.CoreCompileInputs.cache
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.exe
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.pdb
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.Mini_Login_Page.resources
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.DSMC_Dashboard.resources
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.Receptionist_form.resources
+C:\Users\Fatima\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.Patient_Registration.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\bin\Debug\LoginPage.exe.config
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\bin\Debug\LoginPage.exe
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\bin\Debug\LoginPage.pdb
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\DSMC Hospital Management System.csproj.AssemblyReference.cache
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.DSMC_Dashboard.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.Login_page.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.Patient_Registration.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.Properties.Resources.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.Receptionist_form.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\DSMC Hospital Management System.csproj.GenerateResource.cache
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\DSMC Hospital Management System.csproj.CoreCompileInputs.cache
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.exe
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.pdb
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.frmPatients.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.frmEmployees.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.frmVendors.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.frmCustomers.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.frmDoctors.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.frmProducts.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.frmProduct_Categories.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.MainForm.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.frmSales.resources
+C:\Users\HP\OneDrive\Desktop\source\repos\LoginPage\LoginPage\obj\Debug\LoginPage.frmLogin.resources
