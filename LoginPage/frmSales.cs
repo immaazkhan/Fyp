@@ -52,8 +52,16 @@ namespace LoginPage
 
     private void frmSales_Load(object sender, EventArgs e)
     {
-
-    }
+            string customers = "select * from Customers";
+            cmbCutsomer.DisplayMember = "Customer_Name";
+            cmbCutsomer.ValueMember = "Customer_ID";
+            cmbCutsomer.DataSource = db.ExecuteDataTable(customers);
+            string product = "select * from Products";
+           
+            cmbProduct.DisplayMember = "Product_Name";
+            cmbProduct.ValueMember = "Product_ID";
+            cmbProduct.DataSource = db.ExecuteDataTable(product);
+        }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
@@ -61,13 +69,13 @@ namespace LoginPage
             {
                 decimal nextID=db.GetNextPKValue("sales-ID","Sales");
                 // Get the values from the text boxes on the form.
-                string customerID = txtCustomerID.Text.Trim();
-                string customerName = txtSales.Text.Trim(); 
+                //string customerID = txtCustomerID.Text.Trim();
+                //string customerName = txtSales.Text.Trim(); 
                 string invoiceDiscount = txtInvoiceDiscount.Text.Trim();
                 DateTime invoiceDate = dtp.Value;
 
             
-                string salesDetailID = txtSalesDetailID.Text.Trim();
+                //string salesDetailID = txtSalesDetailID.Text.Trim();
                 string productID = txtProductID.Text.Trim();
                 int quantity = int.Parse(Quantity.Text.Trim());
                 decimal unitPrice = decimal.Parse(txtUnitPrice.Text.Trim());
@@ -82,6 +90,11 @@ namespace LoginPage
                 // Handle any exceptions that occurred during the processing.
                 MessageBox.Show("Error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

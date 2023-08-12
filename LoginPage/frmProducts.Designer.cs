@@ -48,7 +48,7 @@ namespace LoginPage
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.cmbCatagery = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -243,16 +243,16 @@ namespace LoginPage
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // cmbCategory
+            // cmbCatagery
             // 
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Items.AddRange(new object[] {
+            this.cmbCatagery.FormattingEnabled = true;
+            this.cmbCatagery.Items.AddRange(new object[] {
             "Stock Categorization"});
-            this.cmbCategory.Location = new System.Drawing.Point(229, 94);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(217, 24);
-            this.cmbCategory.TabIndex = 63;
-            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbCatagery.Location = new System.Drawing.Point(229, 94);
+            this.cmbCatagery.Name = "cmbCatagery";
+            this.cmbCatagery.Size = new System.Drawing.Size(217, 24);
+            this.cmbCatagery.TabIndex = 63;
+            this.cmbCatagery.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // frmProducts
             // 
@@ -260,7 +260,7 @@ namespace LoginPage
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(615, 580);
-            this.Controls.Add(this.cmbCategory);
+            this.Controls.Add(this.cmbCatagery);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker);
@@ -308,6 +308,6 @@ namespace LoginPage
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.ComboBox cmbCatagery;
     }
 }

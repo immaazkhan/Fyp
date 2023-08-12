@@ -38,9 +38,9 @@ namespace LoginPage
         private void frmProducts_Load(object sender, EventArgs e)
         {
             string sql = "select * from Product_Categories";
-            cmbCategory.DisplayMember = "Product_Category_Name";
-            cmbCategory.ValueMember = "Product_Category_ID";
-            cmbCategory.DataSource = db.ExecuteDataTable(sql);
+            cmbCatagery.DisplayMember = "Product_Category_Name";
+            cmbCatagery.ValueMember = "Product_Category_ID";
+            cmbCatagery.DataSource = db.ExecuteDataTable(sql);
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace LoginPage
                 int openingStock = string.IsNullOrEmpty(txtOpenStock.Text) ? 0 : Convert.ToInt32(txtOpenStock.Text);
                 int currentStock = string.IsNullOrEmpty(txtCurrentStock.Text) ? 0 : Convert.ToInt32(txtCurrentStock.Text);
                 DateTime selectedDate = dateTimePicker.Value;
-                int productCategoryID = cmbCategory.SelectedIndex + 1; // Assuming the index corresponds to the category ID
+                int productCategoryID = cmbCatagery.SelectedIndex + 1; // Assuming the index corresponds to the category ID
 
                 string sql = "INSERT INTO DSMC_Hospital_Management_System.dbo.Products " +
                              "(Product_ID, Product_Category_ID, Product_Name, Purchase_Price, Sale_Price, Opening_Stock, Date_Added) " +
