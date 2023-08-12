@@ -99,7 +99,7 @@ namespace LoginPage
             this.BtnOpen.Image = ((System.Drawing.Image)(resources.GetObject("BtnOpen.Image")));
             this.BtnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnOpen.Name = "BtnOpen";
-            this.BtnOpen.Size = new System.Drawing.Size(49, 24);
+            this.BtnOpen.Size = new System.Drawing.Size(49, 28);
             this.BtnOpen.Text = "Open";
             // 
             // panel2
@@ -123,6 +123,7 @@ namespace LoginPage
             this.Controls.Add(this.panel2);
             this.Name = "frmManufacturerMgt";
             this.Text = "frmManufacturerMgt";
+            this.Load += new System.EventHandler(this.frmManufacturerMgt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

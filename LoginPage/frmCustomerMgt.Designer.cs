@@ -35,8 +35,10 @@ namespace LoginPage
             this.BtnOpen = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblCaption1 = new System.Windows.Forms.Label();
+            this.dgv = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -95,18 +97,33 @@ namespace LoginPage
             this.lblCaption1.Text = "Customers";
             this.lblCaption1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // dgv
+            // 
+            this.dgv.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(0, 92);
+            this.dgv.Name = "dgv";
+            this.dgv.RowHeadersWidth = 51;
+            this.dgv.RowTemplate.Height = 24;
+            this.dgv.Size = new System.Drawing.Size(876, 413);
+            this.dgv.TabIndex = 11;
+            this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
+            // 
             // frmCustomerMgt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 505);
+            this.Controls.Add(this.dgv);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel2);
             this.Name = "frmCustomerMgt";
             this.Text = "frmCustomerMgt";
+            this.Load += new System.EventHandler(this.frmCustomerMgt_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,5 +136,6 @@ namespace LoginPage
         private System.Windows.Forms.ToolStripButton BtnOpen;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblCaption1;
+        private System.Windows.Forms.DataGridView dgv;
     }
 }

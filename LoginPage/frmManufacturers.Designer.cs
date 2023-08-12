@@ -134,6 +134,7 @@ namespace LoginPage
             this.Controls.Add(this.panel2);
             this.Name = "frmManufacturers";
             this.Text = "frmManufacturers";
+            this.Load += new System.EventHandler(this.frmManufacturers_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

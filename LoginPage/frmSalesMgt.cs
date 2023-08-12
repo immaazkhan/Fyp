@@ -34,18 +34,8 @@ namespace LoginPage
 
         private void frmSalesMgt_Load(object sender, EventArgs e)
         {
-            //System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection();
-            //con.ConnectionString = @"Data Source = .\SQLEXPRESS; Database = DSMC_Hospital_Management_System; integrated security = true;";
-            //con.Open();
-            //System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
-            //cmd.Connection = con;
+
             string sql = "Select * from Sales";
-            //System.Data.SqlClient.SqlDataAdapter da = new System.Data.SqlClient.SqlDataAdapter();
-            //da.SelectCommand = cmd;
-            //System.Data.DataTable dt = new DataTable();
-            //da.Fill(dt);
-            //da.Dispose();
-            //con.Close();
             this.dgv.DataSource = db.ExecuteDataTable(sql);
         }
 

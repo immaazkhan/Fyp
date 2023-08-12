@@ -66,20 +66,34 @@ namespace LoginPage
             try
             {
                 //decimal productID = decimal.Parse(txtProductID.Text.Trim());
-                string productName = txtProductName.Text.Trim();
-                string price = txtprice.Text.Trim();
-                decimal salesPrice = decimal.Parse(txtSalesPrice.Text.Trim());
-                decimal openStock = decimal.Parse(txtOpenStock.Text.Trim());
-                decimal currentStock = decimal.Parse(txtCurrentStock.Text.Trim());
-                DateTime selectedDate = dateTimePicker.Value;
+                //string productName = txtProductName.Text.Trim();
+                //string price = txtprice.Text.Trim();
+                //decimal salesPrice = decimal.Parse(txtSalesPrice.Text.Trim());
+                //decimal openStock = decimal.Parse(txtOpenStock.Text.Trim());
+                //decimal currentStock = decimal.Parse(txtCurrentStock.Text.Trim());
+                //DateTime selectedDate = dateTimePicker.Value;
 
-                string sql = "INSERT INTO Products (Product_ID, Product_Name, Price, Sales_Price, Open_Stock, Current_Stock, Date_Added)"
-                           + " VALUES ('" + productName + "', '" + price + "', " + salesPrice + ", '"
-                           + openStock + "', '" + currentStock + "', '" + selectedDate.ToString("yyyy-MM-dd") + "')";
+                //string sql = "INSERT INTO Products (Product_ID, Product_Name, Price, Sales_Price, Open_Stock, Current_Stock, Date_Added)"
+                //           + " VALUES ('" + productName + "', '" + price + "', " + salesPrice + ", '"
+                //           + openStock + "', '" + currentStock + "', '" + selectedDate.ToString("yyyy-MM-dd") + "')";
 
                 //               + " VALUES (" + venderid + ", '" + txtVendorName.Text.Trim() + "', '" + txtContactPerson.Text.Trim() + "', '" + txtPostalAddress.Text.Trim() + "', '" + txtMobileNo.Text.Trim() + "', '" + txtCity.Text.Trim() + "')";
                 //    x = db.ExecuteNonQuery(sql);
                 //    if (x == 1)
+                decimal ProductID = db.GetNextPKValue("Product_ID", "Products");
+                string productName = txtProductName.Text;
+                decimal purchasePrice = string.IsNullOrEmpty(txtprice.Text) ? 0 : Convert.ToDecimal(txtprice.Text);
+                decimal salePrice = string.IsNullOrEmpty(txtSalesPrice.Text) ? 0 : Convert.ToDecimal(txtSalesPrice.Text);
+                int openingStock = string.IsNullOrEmpty(txtOpenStock.Text) ? 0 : Convert.ToInt32(txtOpenStock.Text);
+                int currentStock = string.IsNullOrEmpty(txtCurrentStock.Text) ? 0 : Convert.ToInt32(txtCurrentStock.Text);
+                DateTime selectedDate = dateTimePicker.Value;
+                int productCategoryID = cmbCategory.SelectedIndex + 1; // Assuming the index corresponds to the category ID
+
+                string sql = "INSERT INTO DSMC_Hospital_Management_System.dbo.Products " +
+                             "(Product_ID, Product_Category_ID, Product_Name, Purchase_Price, Sale_Price, Opening_Stock, Date_Added) " +
+                             "VALUES " +
+                             $"({ProductID}, {productCategoryID}, '{productName}', {purchasePrice}, {salePrice}, {openingStock}, " +
+                             $"'{selectedDate.ToString("yyyy-MM-dd")}')";
                 db.ExecuteNonQuery(sql);
                 //decimal venderid;
                 //int x;

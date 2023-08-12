@@ -57,9 +57,14 @@ namespace LoginPage
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCustomerMgt frm = frmCustomerMgt.DefaultInstance;
+            if (frm.IsDisposed)
+            {
+                frm = new frmCustomerMgt();
+                frm.MdiParent = this;
+            }
             frm.MdiParent = this;
             frm.Show();
-            //this.Close();
+            
         }
 
         private void productsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,12 +100,8 @@ namespace LoginPage
         private void manufacturersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManufacturerMgt frm = new frmManufacturerMgt();
-            {
-                StartPosition = FormStartPosition.CenterParent;
-            };
-            frm.ShowDialog(this);
-            if (frm.DialogResult == DialogResult.OK)
-                frm = null;
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }

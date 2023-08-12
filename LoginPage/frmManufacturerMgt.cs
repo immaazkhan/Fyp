@@ -14,6 +14,7 @@ namespace LoginPage
     {
         private static frmManufacturerMgt _DefaultInstance;
         DatabaseManager db = new DatabaseManager();
+        DataTable _dtManufactures; 
         public static frmManufacturerMgt DefaultInstance
         {
             get
@@ -47,6 +48,18 @@ namespace LoginPage
         {
 
         }
+
+        private void frmManufacturerMgt_Load(object sender, EventArgs e)
+        {
+            RefreshDataGridView();
+        }
+        public void RefreshDataGridView()
+        {
+            string sql = "Select * from Manufacturers";
+            _dtManufactures = db.ExecuteDataTable(sql);
+            dgv.DataSource = _dtManufactures;
+        }
     }
+
     }
 

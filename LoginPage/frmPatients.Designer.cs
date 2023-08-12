@@ -61,7 +61,7 @@ namespace LoginPage
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(723, 62);
             this.panel1.TabIndex = 0;
@@ -103,7 +103,7 @@ namespace LoginPage
             // dtm
             // 
             this.dtm.Location = new System.Drawing.Point(85, 85);
-            this.dtm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtm.Margin = new System.Windows.Forms.Padding(4);
             this.dtm.Name = "dtm";
             this.dtm.Size = new System.Drawing.Size(265, 22);
             this.dtm.TabIndex = 15;
@@ -168,9 +168,9 @@ namespace LoginPage
             this.gb.Controls.Add(this.radioButton1);
             this.gb.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb.Location = new System.Drawing.Point(16, 279);
-            this.gb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb.Margin = new System.Windows.Forms.Padding(4);
             this.gb.Name = "gb";
-            this.gb.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb.Padding = new System.Windows.Forms.Padding(4);
             this.gb.Size = new System.Drawing.Size(267, 123);
             this.gb.TabIndex = 21;
             this.gb.TabStop = false;
@@ -180,7 +180,7 @@ namespace LoginPage
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(8, 89);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(96, 27);
             this.radioButton2.TabIndex = 1;
@@ -192,7 +192,7 @@ namespace LoginPage
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(8, 47);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(74, 27);
             this.radioButton1.TabIndex = 0;
@@ -348,9 +348,10 @@ namespace LoginPage
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPatients";
             this.Text = "frmPatients";
+            this.Load += new System.EventHandler(this.frmPatients_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gb.ResumeLayout(false);

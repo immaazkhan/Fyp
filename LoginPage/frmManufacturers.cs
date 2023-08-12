@@ -56,5 +56,10 @@ string sql = "INSERT INTO Manufacturers (Manufacturer_ID, Manufacturer_Name) " +
                 MessageBox.Show("Error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void frmManufacturers_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

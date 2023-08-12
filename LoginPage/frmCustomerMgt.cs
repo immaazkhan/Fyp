@@ -12,8 +12,10 @@ namespace LoginPage
 {
     public partial class frmCustomerMgt : Form
     {
-        private static frmCustomerMgt _DefaultInstance;
         DatabaseManager db = new DatabaseManager();
+        DataTable _dtCustomer;
+        private static frmCustomerMgt _DefaultInstance;
+        
         public static frmCustomerMgt DefaultInstance
         {
             get
@@ -41,6 +43,22 @@ namespace LoginPage
             frm.ShowDialog(this);
             if (frm.DialogResult == DialogResult.OK)
                 frm = null;
+        }
+
+        private void frmCustomerMgt_Load(object sender, EventArgs e)
+        {
+            RefreshDataGridView();
+        }
+        public void RefreshDataGridView()
+        {
+            string sql = "Select * from Customers";
+            _dtCustomer = db.ExecuteDataTable(sql);
+             dgv .DataSource = _dtCustomer;
+        }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -42,7 +42,7 @@ namespace LoginPage
             DatabaseManager db = new DatabaseManager();
             if (txtCustomerName.Text== "")
             {
-                MessageBox.Show("Please enter vendor name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please enter customer name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.txtCustomerName.Focus();
                 return;
             }
