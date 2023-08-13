@@ -62,12 +62,12 @@ namespace LoginPage
             this.dgv.BackgroundColor = System.Drawing.Color.White;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv.Location = new System.Drawing.Point(0, 93);
+            this.dgv.Location = new System.Drawing.Point(0, 89);
             this.dgv.Margin = new System.Windows.Forms.Padding(4);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersWidth = 51;
-            this.dgv.Size = new System.Drawing.Size(928, 397);
+            this.dgv.Size = new System.Drawing.Size(928, 401);
             this.dgv.TabIndex = 12;
             this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             // 
@@ -79,7 +79,7 @@ namespace LoginPage
             this.BtnOpen});
             this.toolStrip1.Location = new System.Drawing.Point(0, 62);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(928, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(928, 27);
             this.toolStrip1.TabIndex = 11;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -89,7 +89,7 @@ namespace LoginPage
             this.BtnNew.Image = ((System.Drawing.Image)(resources.GetObject("BtnNew.Image")));
             this.BtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnNew.Name = "BtnNew";
-            this.BtnNew.Size = new System.Drawing.Size(43, 28);
+            this.BtnNew.Size = new System.Drawing.Size(43, 24);
             this.BtnNew.Text = "New";
             this.BtnNew.Click += new System.EventHandler(this.BtnNew_Click);
             // 
@@ -99,8 +99,9 @@ namespace LoginPage
             this.BtnOpen.Image = ((System.Drawing.Image)(resources.GetObject("BtnOpen.Image")));
             this.BtnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnOpen.Name = "BtnOpen";
-            this.BtnOpen.Size = new System.Drawing.Size(49, 28);
+            this.BtnOpen.Size = new System.Drawing.Size(49, 24);
             this.BtnOpen.Text = "Open";
+            this.BtnOpen.Click += new System.EventHandler(this.BtnOpen_Click);
             // 
             // panel2
             // 

@@ -14,6 +14,7 @@ namespace LoginPage
     {
         DatabaseManager db = new DatabaseManager();
         DataTable _dtPatient;
+  
         public frmpatientregistrationMgt()
         {
             InitializeComponent();
@@ -42,6 +43,24 @@ namespace LoginPage
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void BtnOpen_Click(object sender, EventArgs e)
+        {
+            if (this.dgv.CurrentRow == null) return;
+            decimal id = Convert.ToDecimal(this.dgv.CurrentRow.Cells[1].Value);
+            DataRow patient = this._dtPatient.Select("Patient_ID=" + id)[0];
+
+            frmPatients frm = new frmPatients()
+            {
+                StartPosition = FormStartPosition.CenterParent
+
+            };
+            frm.EditProduct = patient;
+            frm.ShowDialog(this);
+            if (frm.DialogResult == DialogResult.OK)
+                frm = null;
 
         }
     }

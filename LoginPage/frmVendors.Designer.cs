@@ -58,8 +58,9 @@ namespace LoginPage
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(513, 50);
+            this.panel1.Size = new System.Drawing.Size(816, 62);
             this.panel1.TabIndex = 2;
             // 
             // panel2
@@ -68,8 +69,9 @@ namespace LoginPage
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(513, 50);
+            this.panel2.Size = new System.Drawing.Size(816, 62);
             this.panel2.TabIndex = 3;
             // 
             // label3
@@ -77,9 +79,10 @@ namespace LoginPage
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(134, 9);
+            this.label3.Location = new System.Drawing.Point(179, 11);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(275, 36);
+            this.label3.Size = new System.Drawing.Size(352, 46);
             this.label3.TabIndex = 0;
             this.label3.Text = "Vendor Management";
             // 
@@ -88,9 +91,10 @@ namespace LoginPage
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(134, 9);
+            this.label1.Location = new System.Drawing.Point(179, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(275, 36);
+            this.label1.Size = new System.Drawing.Size(352, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "Vendor Management";
             // 
@@ -99,20 +103,21 @@ namespace LoginPage
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(12, 75);
+            this.label2.Location = new System.Drawing.Point(16, 92);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 18);
+            this.label2.Size = new System.Drawing.Size(129, 23);
             this.label2.TabIndex = 20;
             this.label2.Text = "Vendor Name";
             // 
             // txtVendorName
             // 
             this.txtVendorName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVendorName.Location = new System.Drawing.Point(121, 72);
-            this.txtVendorName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtVendorName.Location = new System.Drawing.Point(161, 89);
+            this.txtVendorName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtVendorName.Multiline = true;
             this.txtVendorName.Name = "txtVendorName";
-            this.txtVendorName.Size = new System.Drawing.Size(167, 30);
+            this.txtVendorName.Size = new System.Drawing.Size(221, 36);
             this.txtVendorName.TabIndex = 21;
             // 
             // label4
@@ -120,20 +125,21 @@ namespace LoginPage
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(10, 117);
+            this.label4.Location = new System.Drawing.Point(13, 144);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 18);
+            this.label4.Size = new System.Drawing.Size(146, 23);
             this.label4.TabIndex = 22;
             this.label4.Text = "Contact Person";
             // 
             // txtContactPerson
             // 
             this.txtContactPerson.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContactPerson.Location = new System.Drawing.Point(131, 114);
-            this.txtContactPerson.Margin = new System.Windows.Forms.Padding(2);
+            this.txtContactPerson.Location = new System.Drawing.Point(175, 140);
+            this.txtContactPerson.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContactPerson.Multiline = true;
             this.txtContactPerson.Name = "txtContactPerson";
-            this.txtContactPerson.Size = new System.Drawing.Size(167, 30);
+            this.txtContactPerson.Size = new System.Drawing.Size(221, 36);
             this.txtContactPerson.TabIndex = 23;
             // 
             // label5
@@ -141,20 +147,21 @@ namespace LoginPage
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(12, 159);
+            this.label5.Location = new System.Drawing.Point(16, 196);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 18);
+            this.label5.Size = new System.Drawing.Size(143, 23);
             this.label5.TabIndex = 24;
             this.label5.Text = "Postal Address";
             // 
             // txtPostalAddress
             // 
             this.txtPostalAddress.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPostalAddress.Location = new System.Drawing.Point(131, 156);
-            this.txtPostalAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPostalAddress.Location = new System.Drawing.Point(175, 192);
+            this.txtPostalAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPostalAddress.Multiline = true;
             this.txtPostalAddress.Name = "txtPostalAddress";
-            this.txtPostalAddress.Size = new System.Drawing.Size(167, 30);
+            this.txtPostalAddress.Size = new System.Drawing.Size(221, 36);
             this.txtPostalAddress.TabIndex = 25;
             // 
             // label6
@@ -162,20 +169,21 @@ namespace LoginPage
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(12, 200);
+            this.label6.Location = new System.Drawing.Point(16, 246);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 18);
+            this.label6.Size = new System.Drawing.Size(98, 23);
             this.label6.TabIndex = 26;
             this.label6.Text = "Mobile No";
             // 
             // txtMobileNo
             // 
             this.txtMobileNo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobileNo.Location = new System.Drawing.Point(96, 193);
-            this.txtMobileNo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobileNo.Location = new System.Drawing.Point(128, 238);
+            this.txtMobileNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMobileNo.Multiline = true;
             this.txtMobileNo.Name = "txtMobileNo";
-            this.txtMobileNo.Size = new System.Drawing.Size(167, 30);
+            this.txtMobileNo.Size = new System.Drawing.Size(221, 36);
             this.txtMobileNo.TabIndex = 27;
             // 
             // label7
@@ -183,20 +191,21 @@ namespace LoginPage
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(12, 239);
+            this.label7.Location = new System.Drawing.Point(16, 294);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 18);
+            this.label7.Size = new System.Drawing.Size(44, 23);
             this.label7.TabIndex = 28;
             this.label7.Text = "City";
             // 
             // txtCity
             // 
             this.txtCity.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCity.Location = new System.Drawing.Point(52, 236);
-            this.txtCity.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCity.Location = new System.Drawing.Point(69, 290);
+            this.txtCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCity.Multiline = true;
             this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(167, 30);
+            this.txtCity.Size = new System.Drawing.Size(221, 36);
             this.txtCity.TabIndex = 29;
             // 
             // BtnCancel
@@ -209,10 +218,10 @@ namespace LoginPage
             this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancel.ForeColor = System.Drawing.Color.White;
-            this.BtnCancel.Location = new System.Drawing.Point(286, 333);
-            this.BtnCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnCancel.Location = new System.Drawing.Point(381, 410);
+            this.BtnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(123, 35);
+            this.BtnCancel.Size = new System.Drawing.Size(164, 43);
             this.BtnCancel.TabIndex = 48;
             this.BtnCancel.Text = "Cancel";
             this.BtnCancel.UseVisualStyleBackColor = false;
@@ -227,10 +236,10 @@ namespace LoginPage
             this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSave.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSave.ForeColor = System.Drawing.Color.White;
-            this.BtnSave.Location = new System.Drawing.Point(73, 333);
-            this.BtnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnSave.Location = new System.Drawing.Point(97, 410);
+            this.BtnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(123, 35);
+            this.BtnSave.Size = new System.Drawing.Size(164, 43);
             this.BtnSave.TabIndex = 47;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = false;
@@ -238,18 +247,19 @@ namespace LoginPage
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 271);
+            this.textBox1.Location = new System.Drawing.Point(16, 334);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(489, 48);
+            this.textBox1.Size = new System.Drawing.Size(651, 58);
             this.textBox1.TabIndex = 49;
             // 
             // frmVendors
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(513, 379);
+            this.ClientSize = new System.Drawing.Size(816, 555);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnSave);
@@ -266,6 +276,7 @@ namespace LoginPage
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Coral;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmVendors";
             this.Text = "frmVendors";
             this.Load += new System.EventHandler(this.frmVendors_Load);
