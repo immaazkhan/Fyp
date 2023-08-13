@@ -14,6 +14,7 @@ namespace LoginPage
     {
         private static frmProductsMgt _DefaultInstance;
         DatabaseManager db = new DatabaseManager();
+        DataTable _dtProduct;
         public static frmProductsMgt DefaultInstance
         {
             get
@@ -45,15 +46,15 @@ namespace LoginPage
             //System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
             //cmd.Connection = con;
             string sql = "Select * from Products";
-            
+
             //System.Data.SqlClient.SqlDataAdapter da = new System.Data.SqlClient.SqlDataAdapter();
             //da.SelectCommand = cmd;
             //System.Data.DataTable dt = new DataTable();
             //da.Fill(dt);
             //da.Dispose();
             //con.Close();
-
-            this.dgv.DataSource = db.ExecuteDataTable(sql);
+            _dtProduct = db.ExecuteDataTable(sql);
+            this.dgv.DataSource = _dtProduct;
         }
 
         private void BtnNew_Click(object sender, EventArgs e)
@@ -64,6 +65,24 @@ namespace LoginPage
             if (frm.DialogResult == DialogResult.OK)
             frm = null;
          
+        }
+
+        private void BtnOpen_Click(object sender, EventArgs e)
+        {
+            if (this.dgv.CurrentRow == null) return;
+            decimal id = Convert.ToDecimal(this.dgv.CurrentRow.Cells[0].Value);
+            DataRow vender = this._dtProduct.Select("Product_ID=" + id)[0];
+
+            frmProducts frm = new frmProducts()
+            {
+                StartPosition = FormStartPosition.CenterParent
+
+            };
+            frm.Editproduct = vender;
+            frm.ShowDialog(this);
+            if (frm.DialogResult == DialogResult.OK)
+                frm = null;
+
         }
     }
 }

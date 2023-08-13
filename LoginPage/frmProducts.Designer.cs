@@ -186,6 +186,7 @@ namespace LoginPage
             this.txtCurrentStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCurrentStock.Multiline = true;
             this.txtCurrentStock.Name = "txtCurrentStock";
+            this.txtCurrentStock.ReadOnly = true;
             this.txtCurrentStock.Size = new System.Drawing.Size(221, 36);
             this.txtCurrentStock.TabIndex = 57;
             // 

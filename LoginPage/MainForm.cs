@@ -103,5 +103,9 @@ namespace LoginPage
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void applicationToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

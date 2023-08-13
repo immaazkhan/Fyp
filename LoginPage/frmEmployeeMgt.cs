@@ -19,11 +19,12 @@ namespace LoginPage
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
-          
-           frmEmployees  frm = new frmEmployees()
+
+            //frmEmployees  frm = new frmEmployees()
+            frmDoctors frm = new frmDoctors();
              {
-                   StartPosition = FormStartPosition.CenterParent
-              };
+                StartPosition = FormStartPosition.CenterParent;
+              }
             frm.ShowDialog(this);
             if (frm.DialogResult == DialogResult.OK)
                 frm = null;

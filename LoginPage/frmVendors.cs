@@ -63,8 +63,6 @@ namespace LoginPage
                 if (this.EditVender == null)
                 {
                     venderid = db.GetNextPKValue("Vendor_ID", "Vendors");
-
-                    // Use the retrieved ID in your INSERT query.
                     string sql = "INSERT INTO Vendors (Vendor_ID, Vendor_Name, Contact_Person, Postal_Address, Mobile_No, City)"
                                + " VALUES (" + venderid + ", '" + txtVendorName.Text.Trim() + "', '" + txtContactPerson.Text.Trim() + "', '" + txtPostalAddress.Text.Trim() + "', '" + txtMobileNo.Text.Trim() + "', '" + txtCity.Text.Trim() + "')";
                     x=db.ExecuteNonQuery(sql);
@@ -89,50 +87,15 @@ namespace LoginPage
                     db.ExecuteNonQuery(sql);
                    
                 }
-                //int VendorMobileNo = int.Parse(txtMobileNo.Text.Trim());
-                //int VendorID = 50001;        
-                //db.InsertRecord(666, txtVendorName.Text.Trim(), txtContactPerson.Text.Trim(), txtPostalAddress.Text.Trim(), VendorMobileNo, txtCity.Text.Trim());
-                //System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection();
-                //con.ConnectionString = @"Data Source = .\SQLEXPRESS; Database = DSMC_Hospital_Management_System; integrated security = true;";
-                //con.Open();
-                //System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
-                //cmd.Connection = con;
-                //cmd.CommandText = "insert into Vendors (Vendor_ID,Vendor_Name,Contact_Person,Postal_Address,Mobile_No,City)"
-                //+ " values (10012,'" + txtVendorName.Text.Trim() + "', '" + txtContactPerson.Text.Trim() + "', '" + txtPostalAddress.Text.Trim() + "', " + txtMobileNo.Text.Trim() + ", '" + txtCity.Text.Trim() + "')";
-                //cmd.CommandText = "INSERT INTO Vendors (Vendor_ID,Vendor_Name, Contact_Person, Postal_Address, Mobile_No,City) " +
-                //                   "VALUES (@Vendor_Name, @Contact_Person, @Postal_Address, @Mobile_No,@City)";
-
-                //cmd.Parameters.AddWithValue("@Vendor_Name", txtVendorName.Text.Trim());
-                //cmd.Parameters.AddWithValue("@Contact_Person", txtContactPerson.Text.Trim());
-                //cmd.Parameters.AddWithValue("@Postal_Address", txtPostalAddress.Text.Trim());
-                //cmd.Parameters.AddWithValue("@Mobile_No", txtMobileNo.Text.Trim());
-                //cmd.Parameters.AddWithValue("@City", txtCity.Text.Trim());
-                // cmd.ExecuteNonQuery();
-
-                ////this.dgv.DataSource = dt;
-                // frmVendorsMgt.RefreshDataGridView();
-                //DataTable vendorData = db.RetrieveData("Vendors");
-                //db.DataSource = vendorData;
-                //con.Close();
+             
                 this.Close();
-                //textBox1.Text = cmd.CommandText;
+            
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //public void dgv()
-        //{
-            
-        //    cmd.CommandText = "Select * from Vendors";
-        //    System.Data.SqlClient.SqlDataAdapter da = new System.Data.SqlClient.SqlDataAdapter();
-        //    da.SelectCommand = cmd;
-        //    System.Data.DataTable dt = new DataTable();
-        //    da.Fill(dt);
-        //    da.Dispose();
-        //    con.Close();
-        //    this.dgv.DataSource = dt;
-        //}
+    
     }
 }

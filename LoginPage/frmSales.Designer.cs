@@ -238,6 +238,7 @@ namespace LoginPage
             this.BtnCancel.TabIndex = 73;
             this.BtnCancel.Text = "Cancel";
             this.BtnCancel.UseVisualStyleBackColor = false;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // BtnSave
             // 

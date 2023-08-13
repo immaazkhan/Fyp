@@ -46,8 +46,7 @@ namespace LoginPage
             frm.ShowDialog(this);
             if (frm.DialogResult == DialogResult.OK)
                 frm = null;
-            
-            frm.Show();
+     
         }
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
