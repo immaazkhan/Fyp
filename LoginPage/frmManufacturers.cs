@@ -16,7 +16,11 @@ namespace LoginPage
         {
             InitializeComponent();
         }
-
+        public DataRow EditManufactures
+        {
+            get;
+            set;
+        }
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -36,17 +40,37 @@ namespace LoginPage
 
 
 
+                decimal manufactureId;
+                int x;
+                if (this.EditManufactures == null)
+                {
+                     manufactureId = db.GetNextPKValue("Manufacturer_ID", "Manufacturers");
 
-           
-                decimal manufactureId = db.GetNextPKValue("Manufacturer_ID", "Manufacturers");
-string manufacturerName = txtManufacturesName.Text.Trim();
+                    string manufacturerName = txtManufacturesName.Text.Trim();
 
-string sql = "INSERT INTO Manufacturers (Manufacturer_ID, Manufacturer_Name) " +
-             "VALUES (" + manufactureId + ", '" + manufacturerName + "')";
+                    string sql = "INSERT INTO Manufacturers (Manufacturer_ID, Manufacturer_Name) " +
+                                 "VALUES (" + manufactureId + ", '" + manufacturerName + "')";
+                    x = db.ExecuteNonQuery(sql);
+                    if (x == 1)
+                    {
+                        MessageBox.Show("successfully inserted");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
 
-                db.ExecuteNonQuery(sql);
+                    }
+                }
+                else
+                {
+                    manufactureId = decimal.Parse(this.EditManufactures["Manufacturer_ID"].ToString());
+                    string sql = "UPDATE  Manufacturers SET " +
+                                 "Manufacturer_Name = '" + txtManufacturesName.Text.Trim() + "' " +
+                                 "WHERE Manufacturer_ID = " + manufactureId;
+                    db.ExecuteNonQuery(sql);
 
-                MessageBox.Show("successfully inserted");
+                }
+
+              
+
 
                 this.Close();
 
@@ -56,10 +80,17 @@ string sql = "INSERT INTO Manufacturers (Manufacturer_ID, Manufacturer_Name) " +
                 MessageBox.Show("Error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        private void RetriveData()
+        {
+            if (this.EditManufactures != null)
+            {
+                this.txtManufacturesName.Text = this.EditManufactures["Manufacturer_Name"]?.ToString();
+             
+            }
+        }
         private void frmManufacturers_Load(object sender, EventArgs e)
         {
-
+            RetriveData();
         }
     }
 }

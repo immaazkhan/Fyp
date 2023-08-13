@@ -26,6 +26,11 @@ namespace LoginPage
                 _DefaultInstance = value;
             }
         }
+        public DataRow EditProductCatagry
+        {
+            get;
+            set;
+        }
         public frmProductCategories()
         {
             InitializeComponent();
@@ -33,10 +38,21 @@ namespace LoginPage
 
         private void frmProduct_Categories_Load(object sender, EventArgs e)
         {
-
+            RetriveData();
+        }
+        private void RetriveData()
+        {
+            if (this.EditProductCatagry != null)
+            {
+                this.txtProductCategoryName.Text = this.EditProductCatagry["Product_Category_Name"]?.ToString();
+                //this.txtCity.Text = this.EditVender["City"]?.ToString();
+                //this.txtMobileNo.Text = this.EditVender["Mobile_No"]?.ToString();
+                //this.txtContactPerson.Text = this.EditVender["Contact_Person"]?.ToString();
+                //this.txtPostalAddress.Text = this.EditVender["Postal_Address"]?.ToString();
+            }
         }
 
-        private void label3_Click(object sender, EventArgs e)
+            private void label3_Click(object sender, EventArgs e)
         {
 
         }
@@ -71,21 +87,38 @@ namespace LoginPage
 
 
 
-
+                decimal productCatagryid;
+                int x;
                 // Get the values from the text boxes on the form.
-                decimal customerID = db.GetNextPKValue("Product_Category_ID", "Product_Categories");
-                string customerName =txtProductCategoryName.Text.Trim();
-      
-                // Use string concatenation for the SQL query (not recommended due to security risks).
-                string sql = "INSERT INTO Product_Categories (Product_Category_ID, Product_Category_Name) "
-                           + "VALUES (" + customerID + ", '" + customerName + "')";
+                if (this.EditProductCatagry == null)
+                {
+                    productCatagryid = db.GetNextPKValue("Product_Category_ID", "Product_Categories");
+                    string productCatagryname = txtProductCategoryName.Text.Trim();
+
+                    // Use string concatenation for the SQL query (not recommended due to security risks).
+                    string sql = "INSERT INTO Product_Categories (Product_Category_ID, Product_Category_Name) "
+                               + "VALUES (" + productCatagryid + ", '" + productCatagryname + "')";
 
 
-                db.ExecuteNonQuery(sql);
+                  x=  db.ExecuteNonQuery(sql);
+                    if (x == 1)
+                    {
+                        MessageBox.Show("successfully inserted");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
 
-                MessageBox.Show("successfully inserted");
-
-                this.Close();
+                    }
+                }
+                else
+                {
+                    productCatagryid =decimal.Parse(this.EditProductCatagry["Product_Category_ID"].ToString());
+                    string sql = "UPDATE Product_Categories "
+                   + "SET Product_Category_Name = '" + txtProductCategoryName.Text.Trim() + "' "
+                  + "WHERE Product_Category_ID = " + productCatagryid;
+                    db.ExecuteNonQuery(sql);
+                    MessageBox.Show("data updated sucessfully");
+                    this.Close();
+                }
 
             }
             catch (Exception ex)

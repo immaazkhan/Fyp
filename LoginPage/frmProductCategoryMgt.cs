@@ -14,6 +14,7 @@ namespace LoginPage
     {
         private static frmProductCategoryMgt _DefaultInstance;
         DatabaseManager db = new DatabaseManager();
+        DataTable _dtproductcatagry;
         public static frmProductCategoryMgt DefaultInstance
         {
             get
@@ -36,7 +37,8 @@ namespace LoginPage
         {
            
             string sql = "Select * from Product_Categories";
-            this.dgv.DataSource = db.ExecuteDataTable(sql);
+            _dtproductcatagry=db.ExecuteDataTable(sql);
+            this.dgv.DataSource = _dtproductcatagry;
         }
 
         private void BtnNew_Click(object sender, EventArgs e)
@@ -53,5 +55,24 @@ namespace LoginPage
         {
 
         }
+
+        private void BtnOpen_Click(object sender, EventArgs e)
+        {
+            if (this.dgv.CurrentRow == null) return;
+            decimal id = Convert.ToDecimal(this.dgv.CurrentRow.Cells[0].Value);
+            DataRow product = this._dtproductcatagry.Select("Product_Category_ID=" + id)[0];
+
+            frmProductCategories frm = new frmProductCategories()
+            {
+                StartPosition = FormStartPosition.CenterParent
+
+            };
+            frm.EditProductCatagry = product;
+            frm.ShowDialog(this);
+            if (frm.DialogResult == DialogResult.OK)
+                frm = null;
+        }
+
     }
+
 }

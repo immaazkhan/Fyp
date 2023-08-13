@@ -60,5 +60,23 @@ namespace LoginPage
         {
 
         }
+
+        private void BtnOpen_Click(object sender, EventArgs e)
+        {
+            if (this.dgv.CurrentRow == null) return;
+            decimal id = Convert.ToDecimal(this.dgv.CurrentRow.Cells[0].Value);
+            DataRow customer = this._dtCustomer.Select("Customer_ID=" + id)[0];
+
+            frmCustomers frm = new frmCustomers()
+            {
+                StartPosition = FormStartPosition.CenterParent
+
+            };
+            frm.EditCustomer = customer;
+            frm.ShowDialog(this);
+            if (frm.DialogResult == DialogResult.OK)
+                frm = null;
+        }
     }
-}
+    }
+

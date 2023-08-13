@@ -71,6 +71,7 @@ namespace LoginPage
             this.BtnOpen.Name = "BtnOpen";
             this.BtnOpen.Size = new System.Drawing.Size(49, 24);
             this.BtnOpen.Text = "Open";
+            this.BtnOpen.Click += new System.EventHandler(this.BtnOpen_Click);
             // 
             // panel2
             // 

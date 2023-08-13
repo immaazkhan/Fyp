@@ -59,7 +59,24 @@ namespace LoginPage
             _dtManufactures = db.ExecuteDataTable(sql);
             dgv.DataSource = _dtManufactures;
         }
+
+        private void BtnOpen_Click(object sender, EventArgs e)
+        {
+            if (this.dgv.CurrentRow == null) return;
+            decimal id = Convert.ToDecimal(this.dgv.CurrentRow.Cells[0].Value);
+            DataRow vender = this._dtManufactures.Select("Manufacturer_ID=" + id)[0];
+
+            frmManufacturers frm = new frmManufacturers()
+            {
+                StartPosition = FormStartPosition.CenterParent
+
+            };
+            frm.EditManufactures = vender;
+            frm.ShowDialog(this);
+            if (frm.DialogResult == DialogResult.OK)
+                frm = null;
+        }
+    }
     }
 
-    }
-
+    
