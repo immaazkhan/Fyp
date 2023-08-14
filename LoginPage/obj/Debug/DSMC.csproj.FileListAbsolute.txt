@@ -57,3 +57,5 @@ D:\CorrectFypProject\LoginPage\LoginPage\obj\Debug\LoginPage.frmCustomerMgt.reso
 D:\CorrectFypProject\LoginPage\LoginPage\obj\Debug\LoginPage.frmEmployeeMgt.resources
 D:\CorrectFypProject\LoginPage\LoginPage\obj\Debug\LoginPage.frmManufacturerMgt.resources
 D:\CorrectFypProject\LoginPage\LoginPage\obj\Debug\LoginPage.frmManufacturers.resources
+D:\CorrectFypProject\LoginPage\LoginPage\obj\Debug\LoginPage.frmDepartment.resources
+D:\CorrectFypProject\LoginPage\LoginPage\obj\Debug\LoginPage.frmDesignation.resources
