@@ -12,6 +12,7 @@ namespace LoginPage
 {
     public partial class frmDoctors : Form
     {
+        DatabaseManager db = new DatabaseManager();
         public frmDoctors()
         {
             InitializeComponent();
@@ -24,15 +25,28 @@ namespace LoginPage
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            DatabaseManager db = new DatabaseManager();
-          decimal doctoreid=  db.GetNextPKValue("Doctor_ID", "Doctors");
+
+            string employmentType = radioButton1.Checked ? "Regular" : "Visiting";
+
+            int selectedDesignationId = cmb.SelectedIndex + 1;
+
+            decimal doctorId = db.GetNextPKValue("Doctor_ID", "Doctors");
             string sql = "INSERT INTO Doctors " +
-             "(Doctor_ID, Doctor_Name, CNIC, Mobile_No, Email_Address, License_No, Designation_ID, Gender, Salary) " +
-             "VALUES ('" + doctoreid + "', '" + txtDoctorName.Text + "', '" + txtCNIC.Text + "', " +
-             "'" + txtMobileNo.Text + "', '" + txtEmailAddress.Text + "', '" + txtLicNo.Text + "', " +
-             "'" + txtDesignationID.Text + "', '" + (radioButton1.Checked ? "Male" : "Female") + "', " +
-             txtSalary.Text + ")";
+                         "(Doctor_ID, Doctor_Name, CNIC, [Mobile No], Email_Address, Lic_No, Designation_ID, Employement_Type, Salary) " +
+                         "VALUES ('" + doctorId + "', '" + txtDoctorName.Text + "', '" + txtCNIC.Text + "', " +
+                         "'" + txtMobileNo.Text + "', '" + txtEmailAddress.Text + "', '" + txtLicNo.Text + "', " +
+                         selectedDesignationId + ", '" + employmentType + "', " +
+                         txtSalary.Text + ")";
             db.ExecuteNonQuery(sql);
+        }
+
+        private void frmDoctors_Load(object sender, EventArgs e)
+        {
+     
+            string customers = "select * from Designation";
+            cmb.DisplayMember = "Designation_Name";
+            cmb.ValueMember = "Designation_ID";
+            cmb.DataSource = db.ExecuteDataTable(customers);
         }
     }
 }

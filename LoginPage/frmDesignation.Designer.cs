@@ -118,6 +118,7 @@ namespace LoginPage
             this.BtnSave.TabIndex = 60;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = false;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // frmDesignation
             // 

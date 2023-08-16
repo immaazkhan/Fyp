@@ -106,6 +106,8 @@ namespace LoginPage
 
         private void applicationToolStripMenuItem2_Click(object sender, EventArgs e)
         {
+            frmDoctors frm = new frmDoctors();
+            frm.Show();
         }
     }
 }

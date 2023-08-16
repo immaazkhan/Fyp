@@ -44,7 +44,6 @@ namespace LoginPage
             this.label7 = new System.Windows.Forms.Label();
             this.txtLicNo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtDesignationID = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.gb = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -53,6 +52,7 @@ namespace LoginPage
             this.label10 = new System.Windows.Forms.Label();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
+            this.cmb = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.gb.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +63,7 @@ namespace LoginPage
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(768, 62);
             this.panel1.TabIndex = 4;
@@ -225,16 +225,6 @@ namespace LoginPage
             this.label8.TabIndex = 64;
             this.label8.Text = "Designation ID";
             // 
-            // txtDesignationID
-            // 
-            this.txtDesignationID.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesignationID.Location = new System.Drawing.Point(171, 432);
-            this.txtDesignationID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDesignationID.Multiline = true;
-            this.txtDesignationID.Name = "txtDesignationID";
-            this.txtDesignationID.Size = new System.Drawing.Size(221, 36);
-            this.txtDesignationID.TabIndex = 65;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -253,9 +243,9 @@ namespace LoginPage
             this.gb.Controls.Add(this.radioButton1);
             this.gb.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb.Location = new System.Drawing.Point(20, 494);
-            this.gb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb.Margin = new System.Windows.Forms.Padding(4);
             this.gb.Name = "gb";
-            this.gb.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb.Padding = new System.Windows.Forms.Padding(4);
             this.gb.Size = new System.Drawing.Size(267, 123);
             this.gb.TabIndex = 67;
             this.gb.TabStop = false;
@@ -265,7 +255,7 @@ namespace LoginPage
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(8, 89);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(93, 27);
             this.radioButton2.TabIndex = 1;
@@ -277,7 +267,7 @@ namespace LoginPage
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(8, 47);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(99, 27);
             this.radioButton1.TabIndex = 0;
@@ -344,19 +334,27 @@ namespace LoginPage
             this.BtnSave.UseVisualStyleBackColor = false;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
+            // cmb
+            // 
+            this.cmb.FormattingEnabled = true;
+            this.cmb.Location = new System.Drawing.Point(192, 436);
+            this.cmb.Name = "cmb";
+            this.cmb.Size = new System.Drawing.Size(218, 24);
+            this.cmb.TabIndex = 72;
+            // 
             // frmDoctors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(768, 795);
+            this.Controls.Add(this.cmb);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.txtSalary);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.gb);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtDesignationID);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtLicNo);
             this.Controls.Add(this.label7);
@@ -372,9 +370,10 @@ namespace LoginPage
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDoctors";
             this.Text = "frmDoctors";
+            this.Load += new System.EventHandler(this.frmDoctors_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gb.ResumeLayout(false);
@@ -401,7 +400,6 @@ namespace LoginPage
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtLicNo;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtDesignationID;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox gb;
         private System.Windows.Forms.RadioButton radioButton2;
@@ -410,5 +408,6 @@ namespace LoginPage
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnSave;
+        private System.Windows.Forms.ComboBox cmb;
     }
 }

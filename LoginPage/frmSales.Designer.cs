@@ -266,6 +266,7 @@ namespace LoginPage
             this.cmbCutsomer.Name = "cmbCutsomer";
             this.cmbCutsomer.Size = new System.Drawing.Size(265, 24);
             this.cmbCutsomer.TabIndex = 74;
+            this.cmbCutsomer.SelectedIndexChanged += new System.EventHandler(this.cmbCutsomer_SelectedIndexChanged);
             // 
             // cmbProduct
             // 

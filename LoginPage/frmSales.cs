@@ -101,6 +101,11 @@ namespace LoginPage
         {
             this.Close();
         }
+
+        private void cmbCutsomer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
