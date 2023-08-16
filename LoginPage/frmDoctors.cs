@@ -32,11 +32,12 @@ namespace LoginPage
 
             decimal doctorId = db.GetNextPKValue("Doctor_ID", "Doctors");
             string sql = "INSERT INTO Doctors " +
-                         "(Doctor_ID, Doctor_Name, CNIC, [Mobile No], Email_Address, Lic_No, Designation_ID, Employement_Type, Salary) " +
+                         "(Doctor_ID, Doctor_Name, CNIC, [Mobile No], Email_Address, Lic_No, Desgination_ID, Employement_Type, Salary, Date_Added, Active) " +
                          "VALUES ('" + doctorId + "', '" + txtDoctorName.Text + "', '" + txtCNIC.Text + "', " +
                          "'" + txtMobileNo.Text + "', '" + txtEmailAddress.Text + "', '" + txtLicNo.Text + "', " +
                          selectedDesignationId + ", '" + employmentType + "', " +
-                         txtSalary.Text + ")";
+                         txtSalary.Text + ", '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
+                         (radioButton1.Checked ? "1" : "0") + ")";
             db.ExecuteNonQuery(sql);
         }
 
