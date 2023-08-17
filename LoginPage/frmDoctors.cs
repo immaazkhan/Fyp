@@ -38,7 +38,8 @@ namespace LoginPage
                          selectedDesignationId + ", '" + employmentType + "', " +
                          txtSalary.Text + ", '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
                          (radioButton1.Checked ? "1" : "0") + ")";
-            db.ExecuteNonQuery(sql);
+         int  x=  db.ExecuteNonQuery(sql);
+            if (x==1) { MessageBox.Show("value inserted "); }
         }
 
         private void frmDoctors_Load(object sender, EventArgs e)
