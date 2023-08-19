@@ -96,6 +96,11 @@ namespace LoginPage
                 MessageBox.Show("Error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }

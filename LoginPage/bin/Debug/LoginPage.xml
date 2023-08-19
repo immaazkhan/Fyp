@@ -306,6 +306,11 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="P:LoginPage.frmSales.EditSale">
+            <summary>
+            gets or sets the edit sales data row for modification/update
+            </summary>
+        </member>
         <member name="F:LoginPage.frmSales.components">
             <summary>
             Required designer variable.

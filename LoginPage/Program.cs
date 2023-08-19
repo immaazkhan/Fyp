@@ -19,7 +19,7 @@ namespace LoginPage
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Create an instance of DSMC_Dashboard and open it
-            Application.Run(new MainForm());
+            Application.Run(new Login_page());
         }
     }
 }

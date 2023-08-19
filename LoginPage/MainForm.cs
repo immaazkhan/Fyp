@@ -109,5 +109,24 @@ namespace LoginPage
             frmEmployees frm = new frmEmployees();
             frm.Show();
         }
+
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void salesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmSalesMgt salesMgt = frmSalesMgt.DefaultInstance;
+            salesMgt.MdiParent = this;
+            salesMgt.Show();
+        }
+
+        private void managmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEmployeeMgt frm = new frmEmployeeMgt();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

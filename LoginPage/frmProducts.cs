@@ -107,7 +107,7 @@ namespace LoginPage
                 int openingStock = string.IsNullOrEmpty(txtOpenStock.Text) ? 0 : Convert.ToInt32(txtOpenStock.Text);
                 int currentStock = string.IsNullOrEmpty(txtCurrentStock.Text) ? 0 : Convert.ToInt32(txtCurrentStock.Text);
                 DateTime selectedDate = dateTimePicker.Value;
-                int productCategoryID = cmbCatagery.SelectedIndex + 1;
+                int productCategoryID = int.Parse(cmbCatagery.SelectedValue.ToString());
                 if (this.Editproduct == null)
                 {
                     ProductID = db.GetNextPKValue("Product_ID", "Products");

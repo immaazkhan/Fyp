@@ -31,8 +31,6 @@ namespace LoginPage
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDoctorID = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDoctorName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -80,35 +78,12 @@ namespace LoginPage
             this.label1.TabIndex = 0;
             this.label1.Text = "Doctor Management";
             // 
-            // txtDoctorID
-            // 
-            this.txtDoctorID.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDoctorID.Location = new System.Drawing.Point(121, 87);
-            this.txtDoctorID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDoctorID.Multiline = true;
-            this.txtDoctorID.Name = "txtDoctorID";
-            this.txtDoctorID.Size = new System.Drawing.Size(221, 36);
-            this.txtDoctorID.TabIndex = 53;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(16, 91);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 23);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "Doctor ID";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(16, 159);
+            this.label2.Location = new System.Drawing.Point(13, 109);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 23);
@@ -118,7 +93,7 @@ namespace LoginPage
             // txtDoctorName
             // 
             this.txtDoctorName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDoctorName.Location = new System.Drawing.Point(157, 155);
+            this.txtDoctorName.Location = new System.Drawing.Point(169, 106);
             this.txtDoctorName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDoctorName.Multiline = true;
             this.txtDoctorName.Name = "txtDoctorName";
@@ -130,7 +105,7 @@ namespace LoginPage
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(16, 217);
+            this.label4.Location = new System.Drawing.Point(13, 200);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 23);
@@ -140,7 +115,7 @@ namespace LoginPage
             // txtCNIC
             // 
             this.txtCNIC.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCNIC.Location = new System.Drawing.Point(84, 213);
+            this.txtCNIC.Location = new System.Drawing.Point(128, 187);
             this.txtCNIC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCNIC.Multiline = true;
             this.txtCNIC.Name = "txtCNIC";
@@ -366,8 +341,6 @@ namespace LoginPage
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtDoctorName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtDoctorID);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -387,8 +360,6 @@ namespace LoginPage
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDoctorID;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDoctorName;
         private System.Windows.Forms.Label label4;

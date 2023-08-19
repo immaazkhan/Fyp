@@ -40,29 +40,23 @@ namespace LoginPage
 
         private void frmProductsMgt_Load(object sender, EventArgs e)
         {
-            //System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection();
-            //con.ConnectionString = @"Data Source = .\SQLEXPRESS; Database = DSMC_Hospital_Management_System; integrated security = true;";
-            //con.Open();
-            //System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
-            //cmd.Connection = con;
+            RetrieveData();
+        }
+        private void RetrieveData()
+        {
             string sql = "Select * from Products";
-
-            //System.Data.SqlClient.SqlDataAdapter da = new System.Data.SqlClient.SqlDataAdapter();
-            //da.SelectCommand = cmd;
-            //System.Data.DataTable dt = new DataTable();
-            //da.Fill(dt);
-            //da.Dispose();
-            //con.Close();
             _dtProduct = db.ExecuteDataTable(sql);
             this.dgv.DataSource = _dtProduct;
         }
-
         private void BtnNew_Click(object sender, EventArgs e)
         {
             frmProducts frm = new frmProducts();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog(this);
             if (frm.DialogResult == DialogResult.OK)
+            {
+                RetrieveData();
+            }
             frm = null;
          
         }

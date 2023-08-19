@@ -29,7 +29,8 @@ namespace LoginPage
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmLogin Mloginpage = new frmLogin();
+            MainForm Mloginpage = new MainForm   ();
+            //Mloginpage.MdiParent = this;
             Mloginpage.ShowDialog();
         }
     }
