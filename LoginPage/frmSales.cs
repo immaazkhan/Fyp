@@ -12,6 +12,10 @@ namespace LoginPage
 {
     public partial class frmSales : Form
     {
+
+        decimal UpdateGrandTotal = 0;
+        decimal netTotal = 0;
+        decimal invoiceDiscount = 0;
         #region DatasetforSales
         DataSet _dSSales;
         DataTable _dtSales;
@@ -108,24 +112,68 @@ namespace LoginPage
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            decimal salesdetailsid = db.GetNextPKValue("Sale_Details_ID", "SalesDetails");
+            decimal salesID = db.GetNextPKValue("sales_ID", "Sales");
+            string customerName = cmbCutsomer.SelectedValue.ToString();
+            string invoiceDiscount = txtInvoiceDiscount.Text.Trim();
+            DateTime invoiceDate = dtp.Value;
+            string productName = cmbProduct.SelectedValue.ToString();
+
+            string payment = txtpayment.Text.Trim();
+            MessageBox.Show(txtQuantity.Text);
+            //decimal quantity;
+
+            //if (!decimal.TryParse(txtQuantity.Text, out quantity))
+            //{
+            //    quantity = 0; // Set quantity to 0 if parsing fails
+            //}
+            decimal quantity = decimal.Parse(txtQuantity.Text);
+
+            decimal unitPrice = decimal.Parse(txtUnitPrice.Text);
+            decimal grandTotal = decimal.Parse(txtGrandTotal.Text);
+
+            string sql = "INSERT INTO Sales (sales_ID, Customer_ID, Invoice_Date, Invoice_Discount, Quantity, Unit_Price, invice_total, payment)"
+              + " VALUES (" + salesID + ", '" + customerName + "', '" + invoiceDate.ToString("yyyy-MM-dd") + "', '" + invoiceDiscount + "', " + quantity + ", " + unitPrice + ", " + grandTotal + ", " + payment + ")";
+            db.ExecuteNonQuery(sql);
+            // Fetch the last inserted Sales_ID from the database
+            //string getLastInsertedSalesIDQuery = "SELECT SCOPE_IDENTITY()";
+            //decimal lastInsertedSalesID = salesID + 1;
+
+            string sqlSD = "INSERT INTO SalesDetails (Sale_Details_ID, product_ID, Quantity, Unit_Price)"
+                           + " VALUES (" + salesdetailsid + ", "  + productName + ", " + quantity + ", " + unitPrice + ")";
+            db.ExecuteNonQuery(sqlSD);
+
+            string sqlUpdateS = "UPDATE Sales " +
+                               "SET Sales_Details_ID = " + salesdetailsid + " " +
+                               "WHERE Sales_ID = " + salesID;
+            db.ExecuteNonQuery(sqlUpdateS);
+            string sqlUpdateSD = "UPDATE SalesDetails " +
+                           "SET Sales_ID= " + salesID + " " +
+                           "WHERE Sale_Details_ID  = " + salesdetailsid;
+            db.ExecuteNonQuery(sqlUpdateSD);
+
+
             try
             {
-                decimal nextID = db.GetNextPKValue("sales-ID", "Sales");
-                // Get the values from the text boxes on the form.
-                //string customerID = txtCustomerID.Text.Trim();
-                //string customerName = txtSales.Text.Trim(); 
-                string invoiceDiscount = txtInvoiceDiscount.Text.Trim();
-                DateTime invoiceDate = dtp.Value;
+                
+                //decimal salesid = db.GetNextPKValue("sales-ID", "Sales");
+                //
+                //// Get the values from the text boxes on the form.
+                //string customerName = cmbCutsomer.SelectedValue.ToString();
+                ////string customerName = txtSales.Text.Trim(); 
+                //string invoiceDiscount = txtInvoiceDiscount.Text.Trim();
+                //DateTime invoiceDate = dtp.Value;
+                //string productName = cmbProduct.SelectedValue.ToString();
+                //string Payment = txtpayment.Text.Trim();
+
+                ////string salesDetailID = txtSalesDetailID.Text.Trim();
+                //string GrandTotal = txtGrandTotal.Text.Trim();
+                //int quantity = int.Parse(txtQuantity.Text.Trim());
+                //decimal unitPrice = decimal.Parse(txtUnitPrice.Text.Trim());
 
 
-                //string salesDetailID = txtSalesDetailID.Text.Trim();
-                string productID = txtProductID.Text.Trim();
-                int quantity = int.Parse(txtQuantity.Text.Trim());
-                decimal unitPrice = decimal.Parse(txtUnitPrice.Text.Trim());
-
-
-                //string sql = "INSERT INTO Vendors (sales_ID, Customer_ID, Invoice_Date, Invoice_Discount, Sales_Details_ID, Purchase_ID)"
-                //       + " VALUES (" + nextID + ", '" + customerName + "', '" + invoiceDiscount + "', '" + txtPostalAddress.Text.Trim() + "', '" + txtMobileNo.Text.Trim() + "', '" + txtCity.Text.Trim() + "')";
+                ////string sql = "INSERT INTO Vendors (sales_ID, Customer_ID, Invoice_Date, Invoice_Discount, Sales_Details_ID, Purchase_ID)"
+                ////       + " VALUES (" + nextID + ", '" + customerName + "', '" + invoiceDiscount + "', '" + txtPostalAddress.Text.Trim() + "', '" + txtMobileNo.Text.Trim() + "', '" + txtCity.Text.Trim() + "')";
                 //db.ExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -172,6 +220,7 @@ namespace LoginPage
 
         private void txtProductID_TextChanged(object sender, EventArgs e)
         {
+            txtNetTotal.Text = txtGrandTotal.Text;
 
         }
 
@@ -198,7 +247,7 @@ namespace LoginPage
                 decimal salePrice = Convert.ToDecimal(result);
                 txtUnitPrice.Text = salePrice.ToString();
 
-              
+
             }
             else
             {
@@ -225,173 +274,76 @@ namespace LoginPage
             }
             else
             {
-                txtTotalPrice.Text =txtUnitPrice.Text;
+                txtTotalPrice.Text = txtUnitPrice.Text;
             }
         }
 
         private void btnadd_Click(object sender, EventArgs e)
         {
+
             string productID = cmbProduct.Text;
-            string quantity = txtQuantity.Text;
+            string quantity = string.IsNullOrEmpty(txtQuantity.Text) ? "1" : txtQuantity.Text;
             string unitPrice = txtUnitPrice.Text;
 
-            // Add the data to the DataGridView
-            dgv.Rows.Add(productID, quantity, unitPrice);
+            decimal totalDecimalPrice;
+            if (decimal.TryParse(unitPrice, out totalDecimalPrice))
+            {
+                string totalPrice = (string.IsNullOrEmpty(txtQuantity.Text)) ? txtUnitPrice.Text : (decimal.Parse(unitPrice) * decimal.Parse(quantity)).ToString();
+
+                // Add the data to the DataGridView
+                dgv.Rows.Add(productID, quantity, unitPrice, totalPrice);
+
+                UpdateGrandTotal += decimal.Parse(totalPrice);
+                txtGrandTotal.Text = UpdateGrandTotal.ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("Invalid unit price format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Clear the TextBox controls after adding data
-            txtProductID.Clear();
-            txtQuantity.Clear();
-            txtUnitPrice.Clear();
-            txtTotalPrice.Clear();
+            //txtQuantity.Clear();
+            //txtUnitPrice.Clear();
+            //txtTotalPrice.Clear();
+        }
+
+        private void txtInvoiceDiscount_TextChanged(object sender, EventArgs e)
+        {
+            decimal netTotal = decimal.Parse(txtNetTotal.Text);
+            decimal invoiceDiscount;
+
+            if (decimal.TryParse(txtInvoiceDiscount.Text, out invoiceDiscount))
+            {
+                // Calculate the new net total after subtracting the invoice discount
+                decimal newNetTotal = netTotal - invoiceDiscount;
+
+                // Update the txtNetTotal field with the new net total
+                txtNetTotal.Text = newNetTotal.ToString();
+            }
+            else
+            {
+                // If invoice discount is empty, assume it's 0 and calculate net total accordingly
+                //txtInvoiceDiscount.Text = ;
+                txtNetTotal.Text = txtGrandTotal.Text;
+            }
+
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txtpayment.Text, out decimal payment) && decimal.TryParse(txtNetTotal.Text, out decimal nettotal))
+            {
+                decimal balance = nettotal - payment;
+
+                // Set txtbalance.Text to an empty string if the balance is empty
+                txtbalance.Text = (balance != decimal.MinValue) ? balance.ToString() : "";
+            }
+            else
+            {
+                // Handle the case where parsing fails
+                txtbalance.Text = ""; // Set txtbalance to an empty string
+            }
         }
     }
-}
-//private void InitializeComponent()
-//{
-//    this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-//    this.label2 = new System.Windows.Forms.Label();
-//    this.txtDesignationName = new System.Windows.Forms.TextBox();
-//    this.dtm = new System.Windows.Forms.DateTimePicker();
-//    this.label1 = new System.Windows.Forms.Label();
-//    this.panel1 = new System.Windows.Forms.Panel();
-//    this.label3 = new System.Windows.Forms.Label();
-//    this.comboBox1 = new System.Windows.Forms.ComboBox();
-//    this.label4 = new System.Windows.Forms.Label();
-//    this.textBox1 = new System.Windows.Forms.TextBox();
-//    this.textBox2 = new System.Windows.Forms.TextBox();
-//    this.panel1.SuspendLayout();
-//    this.SuspendLayout();
-// 
-// flowLayoutPanel1
-// 
-//this.flowLayoutPanel1.Location = new System.Drawing.Point(554, 123);
-//this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-//this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
-//this.flowLayoutPanel1.TabIndex = 0;
-// 
-// label2
-// 
-//            this.label2.AutoSize = true;
-//            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-//            this.label2.ForeColor = System.Drawing.Color.Black;
-//            this.label2.Location = new System.Drawing.Point(13, 26);
-//            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-//            this.label2.Name = "label2";
-//            this.label2.Size = new System.Drawing.Size(169, 23);
-//            this.label2.TabIndex = 54;
-//            this.label2.Text = "Designation Name";
-//            // 
-//            // txtDesignationName
-//            // 
-//            this.txtDesignationName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-//            this.txtDesignationName.Location = new System.Drawing.Point(189, 23);
-//            this.txtDesignationName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-//            this.txtDesignationName.Multiline = true;
-//            this.txtDesignationName.Name = "txtDesignationName";
-//            this.txtDesignationName.Size = new System.Drawing.Size(221, 36);
-//            this.txtDesignationName.TabIndex = 55;
-//            // 
-//            // dtm
-//            // 
-//            this.dtm.Location = new System.Drawing.Point(489, 37);
-//            this.dtm.Margin = new System.Windows.Forms.Padding(4);
-//            this.dtm.Name = "dtm";
-//            this.dtm.Size = new System.Drawing.Size(265, 22);
-//            this.dtm.TabIndex = 56;
-//            // 
-//            // label1
-//            // 
-//            this.label1.AutoSize = true;
-//            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-//            this.label1.ForeColor = System.Drawing.Color.Black;
-//            this.label1.Location = new System.Drawing.Point(427, 36);
-//            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-//            this.label1.Name = "label1";
-//            this.label1.Size = new System.Drawing.Size(52, 23);
-//            this.label1.TabIndex = 57;
-//            this.label1.Text = "Date";
-//            // 
-//            // panel1
-//            // 
-//            this.panel1.Controls.Add(this.textBox2);
-//            this.panel1.Controls.Add(this.textBox1);
-//            this.panel1.Controls.Add(this.label4);
-//            this.panel1.Controls.Add(this.comboBox1);
-//            this.panel1.Controls.Add(this.label3);
-//            this.panel1.Location = new System.Drawing.Point(17, 75);
-//            this.panel1.Name = "panel1";
-//            this.panel1.Size = new System.Drawing.Size(1342, 388);
-//            this.panel1.TabIndex = 58;
-//            // 
-//            // label3
-//            // 
-//            this.label3.AutoSize = true;
-//            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-//            this.label3.ForeColor = System.Drawing.Color.Black;
-//            this.label3.Location = new System.Drawing.Point(4, 25);
-//            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-//            this.label3.Name = "label3";
-//            this.label3.Size = new System.Drawing.Size(78, 23);
-//            this.label3.TabIndex = 59;
-//            this.label3.Text = "Product";
-//            // 
-//            // comboBox1
-//            // 
-//            this.comboBox1.FormattingEnabled = true;
-//            this.comboBox1.Location = new System.Drawing.Point(89, 24);
-//            this.comboBox1.Name = "comboBox1";
-//            this.comboBox1.Size = new System.Drawing.Size(200, 24);
-//            this.comboBox1.TabIndex = 60;
-//            // 
-//            // label4
-//            // 
-//            this.label4.AutoSize = true;
-//            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-//            this.label4.ForeColor = System.Drawing.Color.Black;
-//            this.label4.Location = new System.Drawing.Point(4, 87);
-//            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-//            this.label4.Name = "label4";
-//            this.label4.Size = new System.Drawing.Size(73, 23);
-//            this.label4.TabIndex = 61;
-//            this.label4.Text = "Quatity";
-//            // 
-//            // textBox1
-//            // 
-//            this.textBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-//            this.textBox1.Location = new System.Drawing.Point(84, 74);
-//            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-//            this.textBox1.Multiline = true;
-//            this.textBox1.Name = "textBox1";
-//            this.textBox1.Size = new System.Drawing.Size(221, 36);
-//            this.textBox1.TabIndex = 59;
-//            // 
-//            // textBox2
-//            // 
-//            this.textBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-//            this.textBox2.Location = new System.Drawing.Point(426, 12);
-//            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-//            this.textBox2.Multiline = true;
-//            this.textBox2.Name = "textBox2";
-//            this.textBox2.Size = new System.Drawing.Size(221, 36);
-//            this.textBox2.TabIndex = 62;
-//            // 
-//            // frmSales
-//            // 
-//            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-//            this.ClientSize = new System.Drawing.Size(1371, 676);
-//            this.Controls.Add(this.panel1);
-//            this.Controls.Add(this.label1);
-//            this.Controls.Add(this.dtm);
-//            this.Controls.Add(this.txtDesignationName);
-//            this.Controls.Add(this.label2);
-//            this.Controls.Add(this.flowLayoutPanel1);
-//            this.Name = "frmSales";
-//            this.panel1.ResumeLayout(false);
-//            this.panel1.PerformLayout();
-//            this.ResumeLayout(false);
-//            this.PerformLayout();
-
-//        }
-//    }
-//}
-
+    }

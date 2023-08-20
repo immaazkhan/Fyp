@@ -51,7 +51,7 @@ namespace LoginPage
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtProductID = new System.Windows.Forms.TextBox();
+            this.txtGrandTotal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,21 +62,22 @@ namespace LoginPage
             this.cmbProduct = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.Products = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitePriice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnremove = new System.Windows.Forms.Button();
             this.btnadd = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtpayment = new System.Windows.Forms.TextBox();
+            this.txtremarks = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtNetTotal = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtbalance = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.Products = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitePriice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -140,6 +141,7 @@ namespace LoginPage
             this.txtInvoiceDiscount.Name = "txtInvoiceDiscount";
             this.txtInvoiceDiscount.Size = new System.Drawing.Size(221, 36);
             this.txtInvoiceDiscount.TabIndex = 58;
+            this.txtInvoiceDiscount.TextChanged += new System.EventHandler(this.txtInvoiceDiscount_TextChanged);
             // 
             // label4
             // 
@@ -179,7 +181,7 @@ namespace LoginPage
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(482, 514);
+            this.label6.Location = new System.Drawing.Point(878, 517);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 23);
@@ -199,16 +201,16 @@ namespace LoginPage
             this.label7.TabIndex = 65;
             this.label7.Text = "Product";
             // 
-            // txtProductID
+            // txtGrandTotal
             // 
-            this.txtProductID.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductID.Location = new System.Drawing.Point(224, 501);
-            this.txtProductID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtProductID.Multiline = true;
-            this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(221, 36);
-            this.txtProductID.TabIndex = 64;
-            this.txtProductID.TextChanged += new System.EventHandler(this.txtProductID_TextChanged);
+            this.txtGrandTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGrandTotal.Location = new System.Drawing.Point(224, 501);
+            this.txtGrandTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtGrandTotal.Multiline = true;
+            this.txtGrandTotal.Name = "txtGrandTotal";
+            this.txtGrandTotal.Size = new System.Drawing.Size(221, 36);
+            this.txtGrandTotal.TabIndex = 64;
+            this.txtGrandTotal.TextChanged += new System.EventHandler(this.txtProductID_TextChanged);
             // 
             // label8
             // 
@@ -337,7 +339,8 @@ namespace LoginPage
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Products,
             this.Quantity,
-            this.UnitePriice});
+            this.UnitePriice,
+            this.TotalPrice});
             this.dgv.Location = new System.Drawing.Point(0, 110);
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 51;
@@ -345,6 +348,34 @@ namespace LoginPage
             this.dgv.Size = new System.Drawing.Size(1341, 261);
             this.dgv.TabIndex = 80;
             this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Products
+            // 
+            this.Products.HeaderText = "Products";
+            this.Products.MinimumWidth = 6;
+            this.Products.Name = "Products";
+            this.Products.Width = 240;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 230;
+            // 
+            // UnitePriice
+            // 
+            this.UnitePriice.HeaderText = "UnitePriice";
+            this.UnitePriice.MinimumWidth = 6;
+            this.UnitePriice.Name = "UnitePriice";
+            this.UnitePriice.Width = 230;
+            // 
+            // TotalPrice
+            // 
+            this.TotalPrice.HeaderText = "TotalPrice";
+            this.TotalPrice.MinimumWidth = 6;
+            this.TotalPrice.Name = "TotalPrice";
+            this.TotalPrice.Width = 250;
             // 
             // txtTotalPrice
             // 
@@ -418,47 +449,48 @@ namespace LoginPage
             this.label11.TabIndex = 77;
             this.label11.Text = "Payment";
             // 
-            // textBox2
+            // txtpayment
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(224, 565);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(221, 36);
-            this.textBox2.TabIndex = 78;
+            this.txtpayment.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpayment.Location = new System.Drawing.Point(224, 565);
+            this.txtpayment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtpayment.Multiline = true;
+            this.txtpayment.Name = "txtpayment";
+            this.txtpayment.Size = new System.Drawing.Size(221, 36);
+            this.txtpayment.TabIndex = 78;
+            this.txtpayment.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
             // 
-            // textBox3
+            // txtremarks
             // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(1037, 561);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(221, 36);
-            this.textBox3.TabIndex = 79;
+            this.txtremarks.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtremarks.Location = new System.Drawing.Point(1037, 561);
+            this.txtremarks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtremarks.Multiline = true;
+            this.txtremarks.Name = "txtremarks";
+            this.txtremarks.Size = new System.Drawing.Size(221, 36);
+            this.txtremarks.TabIndex = 79;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(862, 514);
+            this.label12.Location = new System.Drawing.Point(454, 514);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(152, 23);
             this.label12.TabIndex = 80;
             this.label12.Text = "Invoice Discount";
             // 
-            // textBox4
+            // txtNetTotal
             // 
-            this.textBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(1037, 504);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(221, 36);
-            this.textBox4.TabIndex = 81;
+            this.txtNetTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNetTotal.Location = new System.Drawing.Point(1037, 504);
+            this.txtNetTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNetTotal.Multiline = true;
+            this.txtNetTotal.Name = "txtNetTotal";
+            this.txtNetTotal.Size = new System.Drawing.Size(221, 36);
+            this.txtNetTotal.TabIndex = 81;
             // 
             // label13
             // 
@@ -472,15 +504,15 @@ namespace LoginPage
             this.label13.TabIndex = 82;
             this.label13.Text = "Remarks";
             // 
-            // textBox5
+            // txtbalance
             // 
-            this.textBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(616, 561);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(221, 36);
-            this.textBox5.TabIndex = 83;
+            this.txtbalance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbalance.Location = new System.Drawing.Point(616, 561);
+            this.txtbalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtbalance.Multiline = true;
+            this.txtbalance.Name = "txtbalance";
+            this.txtbalance.Size = new System.Drawing.Size(221, 36);
+            this.txtbalance.TabIndex = 83;
             // 
             // label14
             // 
@@ -494,27 +526,6 @@ namespace LoginPage
             this.label14.TabIndex = 84;
             this.label14.Text = "Balance";
             // 
-            // Products
-            // 
-            this.Products.HeaderText = "Products";
-            this.Products.MinimumWidth = 6;
-            this.Products.Name = "Products";
-            this.Products.Width = 380;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.Width = 380;
-            // 
-            // UnitePriice
-            // 
-            this.UnitePriice.HeaderText = "UnitePriice";
-            this.UnitePriice.MinimumWidth = 6;
-            this.UnitePriice.Name = "UnitePriice";
-            this.UnitePriice.Width = 380;
-            // 
             // frmSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -523,18 +534,18 @@ namespace LoginPage
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1356, 675);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtbalance);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtNetTotal);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtremarks);
+            this.Controls.Add(this.txtpayment);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cmbCutsomer);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnSave);
-            this.Controls.Add(this.txtProductID);
+            this.Controls.Add(this.txtGrandTotal);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtp);
@@ -570,7 +581,7 @@ namespace LoginPage
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtProductID;
+        private System.Windows.Forms.TextBox txtGrandTotal;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label label9;
@@ -586,15 +597,16 @@ namespace LoginPage
         private System.Windows.Forms.Button btnadd;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtpayment;
+        private System.Windows.Forms.TextBox txtremarks;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtNetTotal;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtbalance;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Products;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitePriice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
     }
 }
