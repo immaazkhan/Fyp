@@ -112,69 +112,57 @@ namespace LoginPage
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            decimal salesdetailsid = db.GetNextPKValue("Sale_Details_ID", "SalesDetails");
-            decimal salesID = db.GetNextPKValue("sales_ID", "Sales");
-            string customerName = cmbCutsomer.SelectedValue.ToString();
-            string invoiceDiscount = txtInvoiceDiscount.Text.Trim();
-            DateTime invoiceDate = dtp.Value;
-            string productName = cmbProduct.SelectedValue.ToString();
-
-            string payment = txtpayment.Text.Trim();
-            MessageBox.Show(txtQuantity.Text);
-            //decimal quantity;
-
-            //if (!decimal.TryParse(txtQuantity.Text, out quantity))
-            //{
-            //    quantity = 0; // Set quantity to 0 if parsing fails
-            //}
-            decimal quantity = decimal.Parse(txtQuantity.Text);
-
-            decimal unitPrice = decimal.Parse(txtUnitPrice.Text);
-            decimal grandTotal = decimal.Parse(txtGrandTotal.Text);
-
-            string sql = "INSERT INTO Sales (sales_ID, Customer_ID, Invoice_Date, Invoice_Discount, Quantity, Unit_Price, invice_total, payment)"
-              + " VALUES (" + salesID + ", '" + customerName + "', '" + invoiceDate.ToString("yyyy-MM-dd") + "', '" + invoiceDiscount + "', " + quantity + ", " + unitPrice + ", " + grandTotal + ", " + payment + ")";
-            db.ExecuteNonQuery(sql);
-            // Fetch the last inserted Sales_ID from the database
-            //string getLastInsertedSalesIDQuery = "SELECT SCOPE_IDENTITY()";
-            //decimal lastInsertedSalesID = salesID + 1;
-
-            string sqlSD = "INSERT INTO SalesDetails (Sale_Details_ID, product_ID, Quantity, Unit_Price)"
-                           + " VALUES (" + salesdetailsid + ", "  + productName + ", " + quantity + ", " + unitPrice + ")";
-            db.ExecuteNonQuery(sqlSD);
-
-            string sqlUpdateS = "UPDATE Sales " +
-                               "SET Sales_Details_ID = " + salesdetailsid + " " +
-                               "WHERE Sales_ID = " + salesID;
-            db.ExecuteNonQuery(sqlUpdateS);
-            string sqlUpdateSD = "UPDATE SalesDetails " +
-                           "SET Sales_ID= " + salesID + " " +
-                           "WHERE Sale_Details_ID  = " + salesdetailsid;
-            db.ExecuteNonQuery(sqlUpdateSD);
-
+           
+            if (cmbProduct.SelectedValue.ToString() == "0")
+            {
+                MessageBox.Show("Please select Product", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.cmbProduct.Focus();
+                return;
+            }
+           else  if (txtpayment.Text == "")
+            {
+                MessageBox.Show("Please enter paymnet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.txtpayment.Focus();
+                return;
+            }
 
             try
             {
                 
-                //decimal salesid = db.GetNextPKValue("sales-ID", "Sales");
-                //
-                //// Get the values from the text boxes on the form.
-                //string customerName = cmbCutsomer.SelectedValue.ToString();
-                ////string customerName = txtSales.Text.Trim(); 
-                //string invoiceDiscount = txtInvoiceDiscount.Text.Trim();
-                //DateTime invoiceDate = dtp.Value;
-                //string productName = cmbProduct.SelectedValue.ToString();
-                //string Payment = txtpayment.Text.Trim();
+                decimal salesdetailsid = db.GetNextPKValue("Sale_Details_ID", "SalesDetails");
+                decimal salesID = db.GetNextPKValue("sales_ID", "Sales");
+                string customerName = cmbCutsomer.SelectedValue.ToString();
+                string invoiceDiscount = txtInvoiceDiscount.Text.Trim();
+                DateTime invoiceDate = dtp.Value;
+                string productName = cmbProduct.SelectedValue.ToString();
 
-                ////string salesDetailID = txtSalesDetailID.Text.Trim();
-                //string GrandTotal = txtGrandTotal.Text.Trim();
-                //int quantity = int.Parse(txtQuantity.Text.Trim());
-                //decimal unitPrice = decimal.Parse(txtUnitPrice.Text.Trim());
+                string payment = txtpayment.Text.Trim();
+              
+            
+                decimal quantity = decimal.Parse(txtQuantity.Text);
 
+                decimal unitPrice = decimal.Parse(txtUnitPrice.Text);
+                decimal grandTotal = decimal.Parse(txtGrandTotal.Text);
 
-                ////string sql = "INSERT INTO Vendors (sales_ID, Customer_ID, Invoice_Date, Invoice_Discount, Sales_Details_ID, Purchase_ID)"
-                ////       + " VALUES (" + nextID + ", '" + customerName + "', '" + invoiceDiscount + "', '" + txtPostalAddress.Text.Trim() + "', '" + txtMobileNo.Text.Trim() + "', '" + txtCity.Text.Trim() + "')";
-                //db.ExecuteNonQuery(sql);
+                string sql = "INSERT INTO Sales (sales_ID, Customer_ID, Invoice_Date, Invoice_Discount, Quantity, Unit_Price, invice_total, payment)"
+                  + " VALUES (" + salesID + ", '" + customerName + "', '" + invoiceDate.ToString("yyyy-MM-dd") + "', '" + invoiceDiscount + "', " + quantity + ", " + unitPrice + ", " + grandTotal + ", " + payment + ")";
+                db.ExecuteNonQuery(sql);
+     
+                string sqlSD = "INSERT INTO SalesDetails (Sale_Details_ID, product_ID, Quantity, Unit_Price)"
+                               + " VALUES (" + salesdetailsid + ", " + productName + ", " + quantity + ", " + unitPrice + ")";
+                db.ExecuteNonQuery(sqlSD);
+
+                string sqlUpdateS = "UPDATE Sales " +
+                                   "SET Sales_Details_ID = " + salesdetailsid + " " +
+                                   "WHERE Sales_ID = " + salesID;
+                db.ExecuteNonQuery(sqlUpdateS);
+                string sqlUpdateSD = "UPDATE SalesDetails " +
+                               "SET Sales_ID= " + salesID + " " +
+                               "WHERE Sale_Details_ID  = " + salesdetailsid;
+                MessageBox.Show("successfully inserted");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+
             }
             catch (Exception ex)
             {
@@ -280,7 +268,12 @@ namespace LoginPage
 
         private void btnadd_Click(object sender, EventArgs e)
         {
-
+            if (cmbProduct.SelectedValue.ToString() == "0")
+            {
+                MessageBox.Show("Please select Product", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.cmbProduct.Focus();
+                return;
+            }
             string productID = cmbProduct.Text;
             string quantity = string.IsNullOrEmpty(txtQuantity.Text) ? "1" : txtQuantity.Text;
             string unitPrice = txtUnitPrice.Text;
@@ -343,6 +336,21 @@ namespace LoginPage
             {
                 // Handle the case where parsing fails
                 txtbalance.Text = ""; // Set txtbalance to an empty string
+            }
+        }
+
+        private void btnremove_Click(object sender, EventArgs e)
+        {
+            if (this.dgv.CurrentRow == null) return;
+            DataGridViewRow selectedRow = this.dgv.CurrentRow;
+            string id = selectedRow.Cells[0].Value.ToString();
+           
+
+            DialogResult result = MessageBox.Show("Are you sure you want to remove the product?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                dgv.Rows.Remove(selectedRow);
             }
         }
     }

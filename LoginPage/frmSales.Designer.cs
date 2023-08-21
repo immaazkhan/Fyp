@@ -417,6 +417,7 @@ namespace LoginPage
             this.btnremove.TabIndex = 77;
             this.btnremove.Text = "Remove";
             this.btnremove.UseVisualStyleBackColor = false;
+            this.btnremove.Click += new System.EventHandler(this.btnremove_Click);
             // 
             // btnadd
             // 
